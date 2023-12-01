@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Prediction Results</title>
+</head>
+<body>
+    <h1>Stock Prediction Results</h1>
+
+    <h2>LSTM Predictions Plot</h2>
+    <img src="data:image/png;base64,{{ plot_url_lstm }}" alt="LSTM Predictions Plot"/>
+
+    <h2>Apple Stock Predictions Plot</h2>
+    <img src="data:image/png;base64,{{ plot_url_apl }}" alt="Apple Stock Predictions Plot"/>
+
+    <h2>Facebook Stock Predictions Plot</h2>
+    <img src="data:image/png;base64,{{ plot_url_fb }}" alt="Facebook Stock Predictions Plot"/>
+
+    <h2>Raw Prediction Data</h2>
+    <p>1st 10 Predictions for LSTM: {{ predictions_lstm }}</p>
+    
+    <h2>1st 10 Apple Stock Predictions:</h2>
+    <ul>
+        {% for prediction in predictions_apl %}
+            <li>{{ prediction }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>1st 10 Facebook Stock Predictions:</h2>
+    <ul>
+        {% for prediction in predictions_fb %}
+            <li>{{ prediction }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Make another prediction</a>
+</body>
+</html>
