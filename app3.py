@@ -54,7 +54,6 @@ def predict():
                 print("Exogenous data for APL:", exog_data_apl)
                 print("Exogenous data for FB:", exog_data_fb)
                 
-                # Assuming you want to use the first column for predictions
                 # Modify this part according to your CSV structure
                 predictions_apl = model_apl_arima.predict(n_periods=10, exogenous=exog_data_apl)
                 predictions_fb = model_fb_arima.predict(n_periods=10, exogenous=exog_data_fb)
@@ -105,4 +104,5 @@ def predict():
         return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
